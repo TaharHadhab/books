@@ -1,0 +1,30 @@
+.frame {
+  width: 25rem;
+  height: 30rem;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 4px 4px 0 rgba(0, 0, 0, 0.24);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form {
+  flex: 2 0 auto;
+  width: 20rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="frame">
+    <img width="150" alt="Books" src="../../assets/books.jpg">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="input">
+        <input matInput placeholder="Login" (ngSubmit)="onSubmit()" formControlName="login">
+        <mat-error *ngIf="loginTControl.hasError('required')">Login is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input password">
+        <input matInput type="password" placeholder="Password" formControlName="pwd">
+        <mat-error *ngIf="pwdControl.hasError('required')">Password is required</mat-error>
+      </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Connect</button>
+    </form>
+  </div>
+</div>
