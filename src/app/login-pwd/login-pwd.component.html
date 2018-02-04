@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="frame">
+    <mat-card class="frame">
     <img width="150" alt="Books" src="../../assets/books.jpg">
     <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field class="input">
-        <input matInput placeholder="Login" (ngSubmit)="onSubmit()" formControlName="login">
+        <input matInput placeholder="Login" formControlName="login">
         <mat-error *ngIf="loginTControl.hasError('required')">Login is required</mat-error>
       </mat-form-field>
 
@@ -14,5 +14,5 @@
 
     <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Connect</button>
     </form>
-  </div>
+      </mat-card>
 </div>

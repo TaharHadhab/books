@@ -1,0 +1,25 @@
+<div class="header">
+  Hello {{name$| async}}
+</div>
+<div class="container" *ngIf="books">
+  <mat-form-field class="input">
+    <input matInput [(ngModel)]="filter" placeholder="Filter" (change)="onFilter()">
+  </mat-form-field>
+    <ng-container *ngFor="let book of books">
+      <mat-card class="card">
+        <img width="60" alt="Books" src="../../assets/book.jpg">
+        <mat-card-header>
+          <mat-card-title>{{book.name}}</mat-card-title>
+          <mat-card-subtitle>{{book.year}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{book.color}}
+          </p>
+          <p>
+            {{book.pantone_value}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+</div>

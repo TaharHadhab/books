@@ -4,7 +4,6 @@ import {Observable} from 'rxjs/Observable';
 import {Authentification} from '@app/models/authentification';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {empty} from 'rxjs/observable/empty';
 
 @Injectable()
 export class UserService {

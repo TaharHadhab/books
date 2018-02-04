@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginPwdComponent } from './login-pwd/login-pwd.component';
 import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatCardModule} from '@angular/material';
 import {reducers} from '@app/ngrx/reducers/reducers';
 import {StoreModule} from '@ngrx/store';
-import {EffectsModule} from '@ngrx/effects';
 import {UserService} from '@app/services/user.service';
 import {HttpClientModule} from '@angular/common/http';
 import 'rxjs/add/operator/first';
@@ -17,11 +16,15 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/shareReplay';
+import { BooksComponent } from './books/books.component';
+import {BooksService} from "@app/services/books.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPwdComponent
+    LoginPwdComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +36,9 @@ import 'rxjs/add/operator/map';
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([]),
+    MatCardModule
   ],
-  providers: [UserService],
+  providers: [UserService, BooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,7 +2,8 @@ import * as AuthentificationActions from '@app/ngrx/actions/authentification.act
 import {Authentification} from '@app/models/authentification';
 
 export const initialState: Authentification = {
-  token: null
+  token: null,
+  name: null
 };
 
 export function reducer(state = initialState,

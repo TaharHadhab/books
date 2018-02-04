@@ -6,6 +6,8 @@ import {User} from "@app/models/user";
 import * as AuthentificationActions from '@app/ngrx/actions/authentification.actions';
 import {UserService} from '@app/services/user.service';
 import {Subscription} from "rxjs/Subscription";
+import {Router} from "@angular/router";
+import {Authentification} from "@app/models/authentification";
 
 @Component({
   selector: 'app-login-pwd',
@@ -20,7 +22,7 @@ export class LoginPwdComponent implements OnInit, OnDestroy {
   pwdErrorMsg: string;
   subscription: Subscription;
 
-  constructor(private store: Store<State>, private userService: UserService) {
+  constructor(private store: Store<State>, private userService: UserService, private router: Router) {
   }
 
   ngOnInit() {
@@ -36,8 +38,14 @@ export class LoginPwdComponent implements OnInit, OnDestroy {
       password: this.pwdControl.value
     }
     this.subscription = this.userService.authenticate(user)
-      .subscribe(authentification => {
-          this.store.dispatch(new AuthentificationActions.AuthentificationSuccess(authentification));
+      .subscribe(value => {
+          const auth: Authentification =
+            {
+              token: value.token,
+              name: user.email
+            }
+          this.store.dispatch(new AuthentificationActions.AuthentificationSuccess(auth));
+          this.router.navigate(['/books']);
         },
         error => {
           this.pwdErrorMsg = error.error.error;

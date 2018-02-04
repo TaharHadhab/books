@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  authenticate_url: 'https://reqres.in/api/login'
+  authenticate_url: 'https://reqres.in/api/login',
+  books_url: 'https://reqres.in/api/books'
 };
