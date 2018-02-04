@@ -1,19 +1,13 @@
-
 export interface User {
 
   /**
    * user login.
    */
-  login: string,
+  email: string;
 
   /**
    * user password.
    */
-  password: string,
-
-  /**
-   * user token.
-   */
-  token?: string
+  password: string;
 
 }

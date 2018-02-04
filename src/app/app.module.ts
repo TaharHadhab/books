@@ -6,12 +6,17 @@ import { AppComponent } from './app.component';
 import { LoginPwdComponent } from './login-pwd/login-pwd.component';
 import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule} from "@angular/material";
+import {MatButtonModule} from '@angular/material';
 import {reducers} from '@app/ngrx/reducers/reducers';
-import {StoreModule} from "@ngrx/store";
-import {UserEffects} from "@app/ngrx/effects/user.effects";
+import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-
+import {UserService} from '@app/services/user.service';
+import {HttpClientModule} from '@angular/common/http';
+import 'rxjs/add/operator/first';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/map';
 
 @NgModule({
   declarations: [
@@ -26,12 +31,11 @@ import {EffectsModule} from '@ngrx/effects';
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([
-     UserEffects
-    ]),
+    EffectsModule.forRoot([]),
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

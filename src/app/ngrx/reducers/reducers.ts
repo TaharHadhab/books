@@ -1,16 +1,17 @@
-import {User} from "@app/models/user";
-import {ActionReducerMap} from "@ngrx/store";
-import * as UserReducer from "@app/ngrx/reducers/user.reducer";
+import {User} from '@app/models/user';
+import {ActionReducerMap} from '@ngrx/store';
+import {Authentification} from '@app/models/authentification';
+import * as AuthentificationReducer from '@app/ngrx/reducers/authentification.reducer';
 
 export interface State {
-  user: User;
+  authentification: Authentification;
 }
 
 export const initialState: State = {
-  user: UserReducer.initialState
+  authentification: AuthentificationReducer.initialState
 };
 
 export const reducers: ActionReducerMap<State> = {
-  user: UserReducer.reducer
+  authentification: AuthentificationReducer.reducer
 };
 

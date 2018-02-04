@@ -9,7 +9,7 @@
 
       <mat-form-field class="input password">
         <input matInput type="password" placeholder="Password" formControlName="pwd">
-        <mat-error *ngIf="pwdControl.hasError('required')">Password is required</mat-error>
+        <mat-error *ngIf="pwdControl.hasError('errorpwd')">{{pwdErrorMsg}}</mat-error>
       </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Connect</button>
